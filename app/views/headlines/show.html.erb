@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @headline.title %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @headline.date %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @headline.description %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%= @headline.link %>
+</p>
+
+<h2>Comments</h2>
+<%= render @headline.comments %>
+
+<h2>Add a comment:</h2>
+<%= form_for([@headline, @headline.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :commenter %><br />
+    <%= f.text_field :commenter %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br />
+    <%= f.text_field :rating %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_headline_path(@headline) %> |
+<%= link_to 'Back', headlines_path %>

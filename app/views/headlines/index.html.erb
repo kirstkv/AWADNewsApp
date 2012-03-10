@@ -1,0 +1,29 @@
+<h1>Listing headlines</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Date</th>
+    <th>Description</th>
+    <th>Link</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @headlines.each do |headline| %>
+  <tr>
+    <td><%= headline.title %></td>
+    <td><%= headline.date %></td>
+    <td><%= headline.description %></td>
+    <td><%= headline.link %></td>
+    <td><%= link_to 'Show', headline %></td>
+    <td><%= link_to 'Edit', edit_headline_path(headline) %></td>
+    <td><%= link_to 'Destroy', headline, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Headline', new_headline_path %>
